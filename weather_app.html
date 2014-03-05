@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Weather App</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script type="text/javascript" src="http://api.wunderground.com/api/bfd10bff1a6de603/conditions/geolookup/forecast/q/autoip.json"></script>
+
+</head>
+<body>
+
+ <style>
+  *, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  html, body {
+  	height:100%;
+  	position:relative;
+  	padding:0;
+  	margin:0;
+  	background:#eee;
+    }
+
+  .weather_widget{
+  	margin: 0 auto;
+    width: 100%;
+    padding: 15px;
+  }
+
+	h1 {
+		text-align: center;
+		font-size: 22px;
+	}
+
+	* {
+		border: 1px solid black;
+	}
+
+	div.header {
+		width: 100%;
+		background: red;
+	}
+	
+	div.conditions {
+		width: 100%;
+		background: grey;
+	}
+
+	div.firstPanel {
+		width: 50%;
+		float: left;
+		background: blue;
+		height: 300px;
+	}
+
+	div.inceptionFirstPanel {
+		width: 50%;
+		float: left;
+	}
+
+	img.weatherpix {
+		margin: 0 auto;
+		display: block;
+	}
+
+	div.inceptionSecondPanel {
+		width: 50%;
+		float: left;
+	}
+
+	div.inceptionAttack {
+		width: 50%;
+		float: left;
+	}
+
+	div.inceptionThirdPanel {
+		width: 50%;
+		float: left;
+	}
+	
+	div.textInformation {
+		width: 50%;
+		float: right;
+		background: yellow;
+		height: 300px;
+	}
+
+	div.threeDayForcast {
+		width: 100%;
+	}
+
+	div.threeDayForcast_1, .threeDayForcast_2, .threeDayForcast_3, .threeDayForcast_4, .threeDayForcast_5 {
+		width: 20%;
+		float: left;
+	}
+
+
+</style>
+
+<div class="weather_widget">
+
+	<div class="header">
+		<h1 class="city">Toronto</h1>
+	</div>
+
+	<div class="conditions">
+		<div class="firstPanel">
+			<div class="inceptionAttack">
+				<h1 class="conditionsNow">Chance of Snow</h1>
+				<img class="weatherpix" src="http://lorempixel.com/g/150/150/">
+			</div>
+			<div class="inceptionAttack">
+				<div class="inceptionAttack">
+					<h1>Currently</h1>
+					<h1 class="temp">7C</h1>
+				</div>
+				<div class="inceptionAttack">
+					<h1>Feels Like</h1>
+					<h1 class="feelslike">7C</h1>
+				</div>
+			</div>
+			<div class="inceptionThirdPanel">
+				<div class="inceptionAttack">
+					<h1>Low</h1>
+					<h1 class="low">7C</h1>
+				</div>
+				<div class="inceptionAttack">
+					<h1>High</h1>
+					<h1 class="high">7C</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="textInformation">
+			<h1>Tuesday, March 4, 2014</h1>
+			<p>Today » Overcast with a chance of snow. High of 21F with a windchill as low as -2F. Winds from the SW at 5 to 10 mph. Chance of snow 60% with accumulations up to 1 in. possible.</p>
+			<p>Tomorrow » Overcast with a chance of snow. Low of 14F. Winds from the WSW at 5 to 10 mph. Chance of snow 40%.</p>
+		</div>
+
+	</div>
+
+	<div class="threeDayForcast">
+		<div class="threeDayForcast_1">
+			<h1>Wednesday</h1>
+			<img src="http://lorempixel.com/g/100/100/" alt="" class="weatherpix">
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+		</div>
+		<div class="threeDayForcast_2">
+			<h1>Wednesday</h1>
+			<img src="http://lorempixel.com/g/100/100/" alt="" class="weatherpix">
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+		</div>
+		<div class="threeDayForcast_3">
+			<h1>Wednesday</h1>
+			<img src="http://lorempixel.com/g/100/100/" alt="" class="weatherpix">
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+		</div>
+		<div class="threeDayForcast_4">	
+			<h1>Wednesday</h1>
+			<img src="http://lorempixel.com/g/100/100/" alt="" class="weatherpix">
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+		</div>
+		<div class="threeDayForcast_5">
+			<h1>Wednesday</h1>
+			<img src="http://lorempixel.com/g/100/100/" alt="" class="weatherpix">
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+			<div class="inceptionAttack">
+			<h1>6C</h1>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- 
+<script>
+	myApp = {
+		init : function(){
+			$.ajax('http://api.wunderground.com/api/bfd10bff1a6de603/conditions/geolookup/forecast/q/autoip.json',{
+				type: 'GET',
+				dataType : 'jsonp',
+				success : function(data) {
+					var w = data.current_observation;
+					var weather = w.weather;
+					var city = w.observation_location.city;
+					var temp = w.temp_c;
+					var feelsLike = w.feelslike_c; 
+
+					//include high and low
+					//include icon_url only from current_observation
+					//include date from specific strings
+					//include fcttext_metric for day and evening then next day and evening
+					//include 10 day forcast complete with name of day, icon for weather, expected high and lows
+
+					// dump that string into the h1
+					$('h1.city').text(city);
+					$('h1.conditionsNow').text(weather);
+					$('h1.temp').text(temp +"C");
+					$('h1.feelslike').text(feelsLike + "C");
+
+				}
+			}); // end ajax
+
+		}
+	};
+	$(function(){
+
+		myApp.init();
+	// write a function to go get the weather
+		var goGetTheWeather = function(city){
+			
+		}; 
+	});	// end doc ready
+</script>
+
+ -->
+
+	
+</body>
+</html>
